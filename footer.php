@@ -3,20 +3,8 @@
 			<div class="row">
 				<div class="col-md-9 me-auto text-center text-md-start">
 					<p class="mb-0">
-						<?php 
-
-							if(get_field('green_part', 'navbar_settings') || get_field('gray_part', 'navbar_settings')){
-								$title = get_field('green_part', 'navbar_settings') . ' ' . get_field('gray_part', 'navbar_settings');
-							}else{
-								$title = bloginfo('name');
-							}
-
-							$content = get_field('content', 'footer_settings');
-
-						?>
-
-						&copy; 2022 <?php echo $title; ?>. <?php echo ($content) ? $content : ''; ?>
-
+						<?php $footer_content = get_field('content', 'footer_settings'); ?>
+						<?php echo bloginfo('name'); ?> &copy; 2022. <?php echo ($footer_content) ? $footer_content : ''; ?>
 					</p>
 				</div>
 
