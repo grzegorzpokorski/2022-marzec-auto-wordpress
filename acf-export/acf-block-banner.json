@@ -164,13 +164,15 @@
                             "id": ""
                         },
                         "choices": {
-                            "green": "green",
-                            "gray": "gray",
-                            "gray-light": "gray-light",
+                            "blue-primary": "blue-primary",
+                            "blue-secondary": "blue-secondary",
+                            "blue-1": "blue-1",
+                            "blue-2": "blue-2",
+                            "blue-3": "blue-3",
                             "white": "white",
-                            "white-dark": "white-dark",
-                            "white-green": "white-green",
-                            "black": "black"
+                            "black": "black",
+                            "gray": "gray",
+                            "white-dark": "white-dark"
                         },
                         "default_value": "white",
                         "allow_null": 0,
@@ -194,16 +196,18 @@
                             "id": ""
                         },
                         "choices": {
-                            "green": "green",
-                            "gray": "gray",
-                            "gray-light": "gray-light",
+                            "blue-primary": "blue-primary",
+                            "blue-secondary": "blue-secondary",
+                            "blue-1": "blue-1",
+                            "blue-2": "blue-2",
+                            "blue-3": "blue-3",
                             "white": "white",
-                            "white-dark": "white-dark",
-                            "white-green": "white-green",
-                            "black": "black"
+                            "black": "black",
+                            "gray": "gray",
+                            "white-dark": "white-dark"
                         },
-                        "default_value": false,
-                        "allow_null": 1,
+                        "default_value": "blue-primary",
+                        "allow_null": 0,
                         "multiple": 0,
                         "ui": 0,
                         "return_format": "value",
@@ -211,6 +215,30 @@
                         "placeholder": ""
                     }
                 ]
+            },
+            {
+                "key": "field_62363879ed923",
+                "label": "image",
+                "name": "image",
+                "type": "image",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "return_format": "id",
+                "preview_size": "medium",
+                "library": "all",
+                "min_width": "",
+                "min_height": "",
+                "min_size": "",
+                "max_width": "",
+                "max_height": "",
+                "max_size": "",
+                "mime_types": ""
             },
             {
                 "key": "field_61f6e23f4d10d",
@@ -227,130 +255,6 @@
                 },
                 "placement": "top",
                 "endpoint": 0
-            },
-            {
-                "key": "field_61f6e23f4d4f5",
-                "label": "padding top on mobile",
-                "name": "padding_top_on_mobile",
-                "type": "select",
-                "instructions": "",
-                "required": 0,
-                "conditional_logic": 0,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "choices": {
-                    "0": "0",
-                    "1": "1",
-                    "2": "2",
-                    "3": "3",
-                    "4": "4",
-                    "5": "5",
-                    "7": "7",
-                    "10": "10"
-                },
-                "default_value": 5,
-                "allow_null": 0,
-                "multiple": 0,
-                "ui": 0,
-                "return_format": "value",
-                "ajax": 0,
-                "placeholder": ""
-            },
-            {
-                "key": "field_61f6e23f4d8dd",
-                "label": "padding top on desktop",
-                "name": "padding_top_on_desktop",
-                "type": "select",
-                "instructions": "",
-                "required": 0,
-                "conditional_logic": 0,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "choices": {
-                    "0": "0",
-                    "1": "1",
-                    "2": "2",
-                    "3": "3",
-                    "4": "4",
-                    "5": "5",
-                    "7": "7",
-                    "10": "10"
-                },
-                "default_value": 5,
-                "allow_null": 0,
-                "multiple": 0,
-                "ui": 0,
-                "return_format": "value",
-                "ajax": 0,
-                "placeholder": ""
-            },
-            {
-                "key": "field_61f6e23f4dcc5",
-                "label": "padding bottom on mobile",
-                "name": "padding_bottom_on_mobile",
-                "type": "select",
-                "instructions": "",
-                "required": 0,
-                "conditional_logic": 0,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "choices": {
-                    "0": "0",
-                    "1": "1",
-                    "2": "2",
-                    "3": "3",
-                    "4": "4",
-                    "5": "5",
-                    "7": "7",
-                    "10": "10"
-                },
-                "default_value": 5,
-                "allow_null": 0,
-                "multiple": 0,
-                "ui": 0,
-                "return_format": "value",
-                "ajax": 0,
-                "placeholder": ""
-            },
-            {
-                "key": "field_61f6e23f4e0ad",
-                "label": "padding bottom on desktop",
-                "name": "padding_bottom_on_desktop",
-                "type": "select",
-                "instructions": "",
-                "required": 0,
-                "conditional_logic": 0,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "choices": {
-                    "0": "0",
-                    "1": "1",
-                    "2": "2",
-                    "3": "3",
-                    "4": "4",
-                    "5": "5",
-                    "7": "7",
-                    "10": "10"
-                },
-                "default_value": 5,
-                "allow_null": 0,
-                "multiple": 0,
-                "ui": 0,
-                "return_format": "value",
-                "ajax": 0,
-                "placeholder": ""
             },
             {
                 "key": "field_61f6e23f4e495",
@@ -382,7 +286,7 @@
                 {
                     "param": "block",
                     "operator": "==",
-                    "value": "acf\/banner"
+                    "value": "all"
                 }
             ]
         ],
