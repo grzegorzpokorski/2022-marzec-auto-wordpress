@@ -10,7 +10,7 @@ $background_image = wp_get_attachment_image_src($background_image_id, 'size_full
 
 ?>
 
-<header class="hero hero--image text-white pt-5 pb-7" style="background-image: url('./dist/img/hero-1900w.webp');" id="<?php echo $block['id']; ?>">
+<header class="hero hero--image text-white pt-5 pb-7" style="background-image: url('<?php echo $background_image; ?>');" id="<?php echo $block['id']; ?>">
 	<div class="container">
 		<div class="row align-items-center">
 			<div class="col-md-6 text-center text-md-start mb-1 mb-md-0 hero__content">
