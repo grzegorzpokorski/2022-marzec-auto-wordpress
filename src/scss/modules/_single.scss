@@ -1,0 +1,26 @@
+.single{
+
+	&__column{
+		display: flex;
+		flex-direction: column;
+		row-gap: $spacer * .75;
+
+		@include media-breakpoint-up(md){
+			row-gap: $spacer * 1.5;
+		}
+	}
+
+	&__content{
+		background-color: $white;
+		padding: $spacer * 2;
+	}
+
+	&__price-box{
+		top: $spacer * 1.5;
+		margin-bottom: $spacer * .75;
+
+		@include media-breakpoint-up(md){
+			margin-bottom: 0;
+		}
+	}
+}

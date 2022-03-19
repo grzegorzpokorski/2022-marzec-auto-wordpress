@@ -17,13 +17,17 @@ if(have_rows('logo', 'navbar_settings')){
 	}
 }
 
+if(get_field('telefon', 'navbar_settings')){
+	$telefon = get_field('telefon', 'navbar_settings');
+}
+
 ?>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-white py-1 py-md-2">
 	<div class="container">
-		<a href="<?php echo home_url(); ?>" class="navbar-brand mb-0 h4">
+		<a href="<?php echo home_url(); ?>" class="navbar-brand mb-0 fw-bold">
 
-			<?php echo (is_front_page()) ? '<h1 class="navbar__title">' : ''; ?>
+			<?php echo (is_front_page()) ? '<h1 class="mb-0 navbar__title">' : ''; ?>
 
 			<?php if($logo): ?>
 				
@@ -63,6 +67,11 @@ if(have_rows('logo', 'navbar_settings')){
 				));
 			}
 			?>
+			<?php if($telefon): ?>
+				<a href="tel:<?php echo $telefon; ?>" class="btn btn-outline-blue-primary px-1 ms-auto">
+					<?php echo $telefon; ?>
+				</a>
+			<?php endif; ?>
 		</div>
 	</div>
 </nav>

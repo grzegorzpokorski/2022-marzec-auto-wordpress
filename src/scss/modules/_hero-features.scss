@@ -1,0 +1,6 @@
+.hero-features{
+	@include media-breakpoint-up(md){
+		margin-top: $spacer * -2;
+	}
+	margin-top: $spacer * -2;
+}

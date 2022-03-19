@@ -1,0 +1,18 @@
+@import './bootstrap/bootstrap';
+@import './fontawesome';
+@import './font';
+
+@import './../../node_modules/tiny-slider/src/tiny-slider';
+
+// @import './../../node_modules/aos/src/sass/aos';
+
+@import './modules/navbar';
+@import './modules/helpers';
+@import './modules/hero';
+@import './modules/hero-features';
+@import './modules/features';
+@import './modules/banner';
+@import './modules/single';
+@import './modules/gallery';
+@import './modules/archive';
+@import './modules/custom-content';

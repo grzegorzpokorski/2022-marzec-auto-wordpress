@@ -1,0 +1,13 @@
+.features{
+	row-gap: 1.5rem;
+
+	&__cat-link{
+		background-color: rgba($blue-secondary, .6);
+		transition: background-color .35s;
+
+		&:hover,
+		&:focus{
+			background-color: rgba($blue-secondary, .8)
+		}
+	}
+}

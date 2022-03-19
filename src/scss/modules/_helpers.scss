@@ -1,0 +1,25 @@
+p{
+	&:last-child{
+		margin-bottom: 0;
+	}
+}
+
+.list-unstyled{
+	list-style: none;
+	padding: 0;
+	margin-bottom: 0;
+}
+
+.z-index{
+	&-2{
+		z-index: 2;
+	}
+}
+
+@for $i from 1 through 4 {
+	.z-index{
+		&-#{$i}{
+			z-index: $i;
+		}
+	}
+}

@@ -1,0 +1,144 @@
+.custom-content{
+	column-count: 1;
+	column-gap: 1.5rem;
+
+	&--col-1{
+		@include media-breakpoint-up(md){
+			column-count: 2;
+		}
+	}
+
+	@for $i from 1 to 5{
+		&--col-#{$i}{
+			@include media-breakpoint-up(md){
+				column-count: $i;
+			}
+		}
+	}
+
+	&__avoid-break{
+		break-inside: avoid-column;
+	}
+
+	&__item{
+		margin-bottom: $spacer * 1;
+
+		&:last-child{
+			margin-bottom: 0;
+		}
+	}
+
+	p{
+		line-height: $font-size-base * 1.6;
+	}
+
+	& ol,
+	& ul{
+		& li{
+			padding-left: .75rem;
+			margin-bottom: .75rem;
+
+			&:last-child{
+				margin-bottom: 0;
+			}
+
+			&::marker{
+				color: $blue-secondary;
+				font-weight: $font-weight-bold;
+			}
+		}
+	}
+
+	@for $i from 1 to 6{
+		& h#{$i}{
+			margin-top: 2rem;
+
+			&:first-child{
+				margin-top: 0;
+			}
+		}
+	}
+
+	img{
+		display: block;
+		max-width: 100%;
+		height: auto;
+		margin-bottom: 1.5rem;
+	}
+
+	blockquote{
+		display: flex;
+		flex-direction: column;
+		padding: 2rem 0rem 2rem 2rem;
+		border-left: .75rem solid $blue-secondary;
+		background-color: rgba($blue-secondary, .1);
+	}
+
+	& .wpcf7{
+		@extend .shadow;
+		padding: 2rem;
+		background-color: $white;
+
+		& .screen-reader-response{
+			@extend .sr-only;
+		}
+	}
+
+	& form{
+
+		&.invalid{
+			& .wpcf7-form-control:not([type='submit']){
+				border-color: $red;
+			}
+		}
+
+		& span.wpcf7-form-control-wrap{
+			display: flex;
+			flex-direction: column;
+			row-gap: .75rem;
+			margin-bottom: 1.5rem;
+		}
+
+		& input[type='submit']:disabled{
+			opacity: .5;
+		}
+
+		& .wpcf7-not-valid-tip,
+		& .wpcf7-response-output{
+			color: $red;
+		}
+
+		& .wpcf7-response-output{
+			margin-top: 1.5rem;
+		}
+
+		& .wpcf7-acceptance{
+
+			& label{
+				@extend .form-check;
+				cursor: pointer;
+			}
+
+			& input{
+				@extend .form-check-input;
+			}
+
+			& span{
+				@extend .form-check-label;
+			}
+
+		}
+
+		& label.hide {
+			border: 0;
+			clip: rect(0 0 0 0);
+			height: 1px;
+			margin: -1px;
+			overflow: hidden;
+			padding: 0;
+			position: absolute;
+			width: 1px;
+			white-space: nowrap
+		}
+	}
+}

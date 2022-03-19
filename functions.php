@@ -1,62 +1,62 @@
 <?php 
 
+// menu wallker
 require_once 'inc/navwalker.php';
 
+// disable admin bar on page while is login
 add_filter('show_admin_bar', '__return_false');
 
-function theme_configuration(){
+function greg_theme_configuration(){
 
-	// rejestracja menu
+	// register menu
 	register_nav_menus(array(
 		'primary_menu' => __('primary menu'),
 	));
 
-	// thumbnails support and sizes
+	// post thumbnails support and sizes
 	add_theme_support('post-thumbnails');
 	add_image_size('size_full', 1920, '', array('center', 'center'));
 	add_image_size('size_large', 1200, '', array('center', 'center'));
-	add_image_size('size_medium', 922, '', array('center', 'center'));
+	add_image_size('size_medium', 1048, '', array('center', 'center'));
 	add_image_size('size_small', 768, '', array('center', 'center'));
-	add_image_size('size_thumbnail', 768, 512, array('center', 'center'), true);
+	add_image_size('size_thumbnail', 576, '', array('center', 'center'));
 }
-add_action('after_setup_theme', 'theme_configuration');
+add_action('after_setup_theme', 'greg_theme_configuration');
 
-function load_css(){
+function greg_load_css(){
 
 	// główny plik css
 	wp_register_style(
-		'main',
+		'greg-main',
 		get_template_directory_uri() . '/dist/css/style.css',
 		array(),
 		false,
 		'all'
 	);
-	wp_enqueue_style('main');
-
+	wp_enqueue_style('greg-main');
 }
-add_action('wp_enqueue_scripts', 'load_css');
+add_action('wp_enqueue_scripts', 'greg_load_css');
 
-function load_scripts(){
+function greg_load_scripts(){
 
 	wp_register_script(
-		'main',
+		'greg-main',
 		get_template_directory_uri() . '/dist/js/bundle.js',
 		array(),
 		false,
 		true
 	);
-	wp_enqueue_script('main');
-
+	wp_enqueue_script('greg-main');
 }
-add_action('wp_enqueue_scripts', 'load_scripts');
+add_action('wp_enqueue_scripts', 'greg_load_scripts');
 
-function allowed_block_types($block_editor_context, $editor_context){
+// allowed blocks depending on post type - different for pages and posts
+function greg_allowed_block_types($block_editor_context, $editor_context){
 	
 	if($editor_context->post->post_type === 'post'){
 		return array(
 			'core/paragraph',
 			'core/image',
-			'core/paragraph',
 			'core/heading',
 			'core/list',
 			'core/quote',
@@ -65,39 +65,66 @@ function allowed_block_types($block_editor_context, $editor_context){
 	
 	if($editor_context->post->post_type === 'page'){
 		return array(
-			'acf/hero',
-			'acf/section-with-accordion',
-			'acf/banner',
+			'acf/hero-main',
+			'acf/hero-features',
 			'acf/section-with-features',
-			'acf/section-with-cards',
-			'acf/section-with-timeline',
-			'acf/section-with-list',
-			'acf/section-with-recent-projects',
-			'acf/section-with-elastic-content',
-			'acf/section-with-flexible-content',
 		);
 	}
 
 	return $block_editor_context;
 }
 
-add_filter('allowed_block_types_all', 'allowed_block_types', 10, 2);
+add_filter('allowed_block_types_all', 'greg_allowed_block_types', 10, 2);
 
 // acf blocks registration
-function acf_blocks_registration(){
+function greg_acf_blocks_registration(){
 	if(function_exists('acf_register_block_type')){
 
-		// hero
+		// hero-main
 		acf_register_block_type(array(
-			'name'              => 'hero',
-			'title'             => __('hero'),
-			'description'       => __('hero'),
-			'render_callback'   => 'acf_block_render_callback',
+			'name'              => 'hero-main',
+			'title'             => __('hero-main'),
+			'description'       => __('hero-main'),
+			'render_callback'   => 'greg_acf_block_render_callback',
 			'category'          => 'Sections',
 			'icon'              => 'block-default',
 			'align_content'     => false,
-			'keywords'          => array( 'hero block' ),
-			'enqueue_assets'    => 'block_assets',
+			'keywords'          => array( 'hero-main block' ),
+			'enqueue_assets'    => 'greg_block_assets',
+			'mode'              => 'edit',
+			'supports'          => array(
+				'align'     => false,
+			),
+		));
+
+		// hero-features
+		acf_register_block_type(array(
+			'name'              => 'hero-features',
+			'title'             => __('hero-features'),
+			'description'       => __('hero-features'),
+			'render_callback'   => 'greg_acf_block_render_callback',
+			'category'          => 'Sections',
+			'icon'              => 'block-default',
+			'align_content'     => false,
+			'keywords'          => array( 'hero-features block' ),
+			'enqueue_assets'    => 'greg_block_assets',
+			'mode'              => 'edit',
+			'supports'          => array(
+				'align'     => false,
+			),
+		));
+
+		// section-with-features
+		acf_register_block_type(array(
+			'name'              => 'section-with-features',
+			'title'             => __('section-with-features'),
+			'description'       => __('section-with-features'),
+			'render_callback'   => 'greg_acf_block_render_callback',
+			'category'          => 'Sections',
+			'icon'              => 'block-default',
+			'align_content'     => false,
+			'keywords'          => array( 'section-with-features block' ),
+			'enqueue_assets'    => 'greg_block_assets',
 			'mode'              => 'edit',
 			'supports'          => array(
 				'align'     => false,
@@ -106,23 +133,24 @@ function acf_blocks_registration(){
 
 	}
 }
-add_action('acf/init', 'acf_blocks_registration');
+add_action('acf/init', 'greg_acf_blocks_registration');
 
-function acf_map_configuration() {
+// google maps api configuration for acf
+function greg_acf_map_configuration() {
 	// acf_update_setting('google_api_key', 'KEY');
 	// acf_update_setting('google_api_key', 'KEY');
 }
-add_action('acf/init', 'acf_map_configuration');
+add_action('acf/init', 'greg_acf_map_configuration');
 
 // load assets to block
-function block_assets(){
+function greg_block_assets(){
 	// if(is_admin()){
 	// 	wp_enqueue_style('block', get_template_directory_uri() . '/dist/css/style.css');
 	// }
 }
 
-// load render file for block
-function acf_block_render_callback($block){
+// load render file for acf block
+function greg_acf_block_render_callback($block){
 	
 	// convert name ("acf/testimonial") into path friendly slug ("testimonial")
 	$slug = str_replace('acf/', '', $block['name']);
@@ -133,67 +161,64 @@ function acf_block_render_callback($block){
 	}
 }
 
-function add_block_editor_assets(){
+// load block assets for admin area
+function greg_add_block_editor_assets(){
 	wp_enqueue_style('block_editor_css', get_template_directory_uri() . '/dist/css/style.css');
 }
-add_action('enqueue_block_editor_assets','add_block_editor_assets');
+add_action('enqueue_block_editor_assets','greg_add_block_editor_assets');
 
-function get_image($id){
-	$meta =  wp_get_attachment_metadata($id);
+// custom function to recieve image data by id
+// function greg_get_image($id){
+// 	$meta =  wp_get_attachment_metadata($id);
 
-	// return $meta;
+// 	// return $meta;
 
-	$data['alt'] = get_post_meta($id, '_wp_attachment_image_alt', true);
-	$data['width'] = $meta['width'];
-	$data['height'] = $meta['height'];
+// 	$data['alt'] = get_post_meta($id, '_wp_attachment_image_alt', true);
+// 	$data['width'] = $meta['width'];
+// 	$data['height'] = $meta['height'];
 
-	$image_sizes = array_keys($meta['sizes']);
+// 	$image_sizes = array_keys($meta['sizes']);
 
-	foreach($image_sizes as $value){
-		// $data['url'][$value] = get_the_post_thumbnail_url(null, $value);
-		$data['url'][$value] = wp_get_attachment_image_src($id, $value)[0];
-	}
+// 	foreach($image_sizes as $value){
+// 		// $data['url'][$value] = get_the_post_thumbnail_url(null, $value);
+// 		$data['url'][$value] = wp_get_attachment_image_src($id, $value)[0];
+// 	}
 
-	return $data;
-}
+// 	return $data;
+// }
 
-function my_toolbars($toolbars){
+// custom toolbar for wysiwyg editior in acf
+function greg_my_toolbars($toolbars){
+
 	// Uncomment to view format of $toolbars
-	// echo '<pre>';
+	
+	// echo '< pre >';
 	// 	print_r($toolbars);
-	// echo '</pre>';
+	// echo '< /pre >';
 	// die;
 	
-
-	// Add a new toolbar called "Very Simple"
-	// - this toolbar has only 1 row of buttons
-	$toolbars['default-content' ] = array();
-	$toolbars['default-content' ][1] = array('formatselect', 'bold', 'italic', 'bullist', 'numlist', 'blockquote', 'alignleft', 'aligncenter', 'alignright', 'link', 'fullscreen');
-
-	// echo '<pre>';
-	// 	print_r($toolbars);
-	// echo '</pre>';
-	// die;
+	$toolbars['Very Simple'] = array();
+	$toolbars['Very Simple'][1] = array('bold' , 'italic' , 'underline', 'link');
 
 	return $toolbars;
 }
-add_filter('acf/fields/wysiwyg/toolbars', 'my_toolbars');
+add_filter('acf/fields/wysiwyg/toolbars', 'greg_my_toolbars');
 
 // remove add media in wysiwyg field with default-content tolbar
-function change_post_content_type($field){ 
-    if($field['type'] == 'wysiwyg') {
-        $field['tabs'] = 'visual';
-        $field['toolbar'] = 'default-content';
-        $field['media_upload'] = 0;
-    }
-    return $field;
+function greg_change_post_content_type($field){ 
+	if($field['type'] == 'wysiwyg') {
+		$field['tabs'] = 'visual';
+	}
+	return $field;
 }
-add_filter('acf/get_valid_field', 'change_post_content_type');
+add_filter('acf/get_valid_field', 'greg_change_post_content_type');
 
-function add_opions_pages(){
+// custom options pages with acf
+function greg_add_options_pages(){
 
 	if(function_exists('acf_add_options_page')){
 		
+		// main options page
 		acf_add_options_page(array(
 			'page_title' 	=> 'Ustawienia oraz dane witryny',
 			'menu_title'	=> 'Ustawienia oraz dane witryny',
@@ -202,7 +227,6 @@ function add_opions_pages(){
 			'capability'	=> 'edit_posts',
 			'redirect'		=> false
 		));
-
 
 		// setting page for socal media
 		acf_add_options_sub_page(array(
@@ -220,8 +244,61 @@ function add_opions_pages(){
 			'post_id' => 'footer_settings',
 		));
 	}
-	
 }
-add_action('acf/init', 'add_opions_pages');
+add_action('acf/init', 'greg_add_options_pages');
+
+// functions that display all enqueued scripts and styles
+// function get_all_stylesheets() {
+//     global $wp_styles;
+  
+// 	echo '<pre>Style:<br><br>';
+//     print_r( $wp_styles->queue );
+// 	echo '</pre>';
+// }
+// add_action( 'wp_print_styles', 'get_all_stylesheets' );
+
+// function get_all_scripts() {
+//     global $wp_scripts;
+  
+// 	echo '<pre>Skrypty:<br><br>';
+//     print_r( $wp_scripts->queue );
+// 	echo '</pre>';
+// }
+// add_action( 'wp_print_scripts', 'get_all_scripts' );
+
+// remove assets - delivered by plugins, themes etc
+function greg_remove_plugin_assets(){
+
+	// styles
+	wp_dequeue_style(array( 
+		'wp-block-library', 
+		'wc-block-style',
+		'global-styles',
+		'contact-form-7',
+	)); 
+
+	// scripts
+	// wp_dequeue_script(array());
+}
+add_action('wp_enqueue_scripts', 'greg_remove_plugin_assets', 999);
+
+function greg_archive_title($title){
+	if(is_category()){
+		$title = single_cat_title('', false);
+	}elseif(is_tag()){
+		$title = single_tag_title('', false);
+	}elseif(is_search()){
+		$title = the_search_query();
+	}elseif(is_post_type_archive()){
+		$title = post_type_archive_title('', false);
+	}elseif(is_tax()){
+		$title = single_term_title('', false);
+	}
+  
+	return $title;
+}
+add_filter('get_the_archive_title', 'greg_archive_title');
+
+add_filter( 'wpcf7_autop_or_not', '__return_false' );
 
 ?>

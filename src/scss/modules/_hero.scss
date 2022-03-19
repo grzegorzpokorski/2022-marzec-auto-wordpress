@@ -1,0 +1,21 @@
+.hero{
+
+	&--image{
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: cover;
+		position: relative;
+
+		&:after{
+			content: '';
+			position: absolute;
+			inset: 0;
+			background: rgba($blue-primary, .95);
+			z-index: 1;
+		}
+	}
+
+	&__content{
+		z-index: 2;
+	}
+}
