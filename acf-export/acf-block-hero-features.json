@@ -1,13 +1,13 @@
 [
     {
-        "key": "group_61ffdb5e34915",
-        "title": "Settings: navbar",
+        "key": "group_6235efed13549",
+        "title": "Block: hero-features",
         "fields": [
             {
-                "key": "field_61ffe11033b82",
-                "label": "logo",
-                "name": "logo",
-                "type": "group",
+                "key": "field_6235f163ba083",
+                "label": "content",
+                "name": "",
+                "type": "tab",
                 "instructions": "",
                 "required": 0,
                 "conditional_logic": 0,
@@ -16,10 +16,30 @@
                     "class": "",
                     "id": ""
                 },
+                "placement": "top",
+                "endpoint": 0
+            },
+            {
+                "key": "field_6235efffba07c",
+                "label": "items",
+                "name": "items",
+                "type": "repeater",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "collapsed": "",
+                "min": 0,
+                "max": 0,
                 "layout": "block",
+                "button_label": "",
                 "sub_fields": [
                     {
-                        "key": "field_620bc9c506c5b",
+                        "key": "field_6235f02cba07f",
                         "label": "content",
                         "name": "",
                         "type": "tab",
@@ -35,9 +55,9 @@
                         "endpoint": 0
                     },
                     {
-                        "key": "field_61ffdc56e2f55",
-                        "label": "first_part",
-                        "name": "first_part",
+                        "key": "field_6235f00aba07d",
+                        "label": "number",
+                        "name": "number",
                         "type": "text",
                         "instructions": "",
                         "required": 0,
@@ -54,9 +74,9 @@
                         "maxlength": ""
                     },
                     {
-                        "key": "field_61ffdc5de2f56",
-                        "label": "second_part",
-                        "name": "second_part",
+                        "key": "field_6235f023ba07e",
+                        "label": "content",
+                        "name": "content",
                         "type": "text",
                         "instructions": "",
                         "required": 0,
@@ -73,7 +93,7 @@
                         "maxlength": ""
                     },
                     {
-                        "key": "field_620bc9d406c5c",
+                        "key": "field_6235f036ba080",
                         "label": "styles",
                         "name": "",
                         "type": "tab",
@@ -89,9 +109,9 @@
                         "endpoint": 0
                     },
                     {
-                        "key": "field_620bc8f2586dd",
-                        "label": "first_color",
-                        "name": "first_color",
+                        "key": "field_6235f03fba081",
+                        "label": "background color",
+                        "name": "background_color",
                         "type": "select",
                         "instructions": "",
                         "required": 0,
@@ -102,49 +122,11 @@
                             "id": ""
                         },
                         "choices": {
-                            "blue-primary": "blue-primary",
-                            "blue-secondary": "blue-secondary",
                             "blue-1": "blue-1",
                             "blue-2": "blue-2",
-                            "blue-3": "blue-3",
-                            "white": "white",
-                            "black": "black",
-                            "gray": "gray",
-                            "white-dark": "white-dark"
+                            "blue-3": "blue-3"
                         },
-                        "default_value": "blue-secondary",
-                        "allow_null": 0,
-                        "multiple": 0,
-                        "ui": 0,
-                        "return_format": "value",
-                        "ajax": 0,
-                        "placeholder": ""
-                    },
-                    {
-                        "key": "field_620bc967586de",
-                        "label": "second_color",
-                        "name": "second_color",
-                        "type": "select",
-                        "instructions": "",
-                        "required": 0,
-                        "conditional_logic": 0,
-                        "wrapper": {
-                            "width": "",
-                            "class": "",
-                            "id": ""
-                        },
-                        "choices": {
-                            "blue-primary": "blue-primary",
-                            "blue-secondary": "blue-secondary",
-                            "blue-1": "blue-1",
-                            "blue-2": "blue-2",
-                            "blue-3": "blue-3",
-                            "white": "white",
-                            "black": "black",
-                            "gray": "gray",
-                            "white-dark": "white-dark"
-                        },
-                        "default_value": "blue-primary",
+                        "default_value": "blue-1",
                         "allow_null": 0,
                         "multiple": 0,
                         "ui": 0,
@@ -155,10 +137,10 @@
                 ]
             },
             {
-                "key": "field_6235e7c71b11d",
-                "label": "telefon",
-                "name": "telefon",
-                "type": "text",
+                "key": "field_6235f16aba084",
+                "label": "styles",
+                "name": "",
+                "type": "tab",
                 "instructions": "",
                 "required": 0,
                 "conditional_logic": 0,
@@ -167,19 +149,42 @@
                     "class": "",
                     "id": ""
                 },
-                "default_value": "",
-                "placeholder": "",
-                "prepend": "",
-                "append": "",
-                "maxlength": ""
+                "placement": "top",
+                "endpoint": 0
+            },
+            {
+                "key": "field_6235f0f4ba082",
+                "label": "how many items in row on desktop",
+                "name": "how_many_items_in_row_on_desktop",
+                "type": "select",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "1": "1",
+                    "2": "2",
+                    "3": "3"
+                },
+                "default_value": 3,
+                "allow_null": 0,
+                "multiple": 0,
+                "ui": 0,
+                "return_format": "value",
+                "ajax": 0,
+                "placeholder": ""
             }
         ],
         "location": [
             [
                 {
-                    "param": "options_page",
+                    "param": "block",
                     "operator": "==",
-                    "value": "acf-options-navbar"
+                    "value": "acf\/hero-features"
                 }
             ]
         ],

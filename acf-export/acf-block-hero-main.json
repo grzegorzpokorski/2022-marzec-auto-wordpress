@@ -53,7 +53,7 @@
                 },
                 "default_value": "",
                 "tabs": "visual",
-                "toolbar": "very_simple",
+                "toolbar": "default-content",
                 "media_upload": 0,
                 "delay": 0
             },
@@ -156,13 +156,15 @@
                             "id": ""
                         },
                         "choices": {
-                            "green": "green",
-                            "gray": "gray",
-                            "gray-light": "gray-light",
+                            "blue-primary": "blue-primary",
+                            "blue-secondary": "blue-secondary",
+                            "blue-1": "blue-1",
+                            "blue-2": "blue-2",
+                            "blue-3": "blue-3",
                             "white": "white",
-                            "white-dark": "white-dark",
-                            "white-green": "white-green",
-                            "black": "black"
+                            "black": "black",
+                            "gray": "gray",
+                            "white-dark": "white-dark"
                         },
                         "default_value": "white",
                         "allow_null": 0,
@@ -186,15 +188,17 @@
                             "id": ""
                         },
                         "choices": {
-                            "green": "green",
-                            "gray": "gray",
-                            "gray-light": "gray-light",
+                            "blue-primary": "blue-primary",
+                            "blue-secondary": "blue-secondary",
+                            "blue-1": "blue-1",
+                            "blue-2": "blue-2",
+                            "blue-3": "blue-3",
                             "white": "white",
-                            "white-dark": "white-dark",
-                            "white-green": "white-green",
-                            "black": "black"
+                            "black": "black",
+                            "gray": "gray",
+                            "white-dark": "white-dark"
                         },
-                        "default_value": "green",
+                        "default_value": "blue-secondary",
                         "allow_null": 0,
                         "multiple": 0,
                         "ui": 0,
@@ -270,6 +274,30 @@
                 "return_format": "value",
                 "ajax": 0,
                 "placeholder": ""
+            },
+            {
+                "key": "field_6235ecc1400c7",
+                "label": "background image",
+                "name": "background_image",
+                "type": "image",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "return_format": "id",
+                "preview_size": "medium",
+                "library": "all",
+                "min_width": "",
+                "min_height": "",
+                "min_size": "",
+                "max_width": "",
+                "max_height": "",
+                "max_size": "",
+                "mime_types": ""
             }
         ],
         "location": [
