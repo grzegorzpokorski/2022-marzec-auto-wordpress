@@ -24,6 +24,19 @@ function greg_theme_configuration(){
 add_action('after_setup_theme', 'greg_theme_configuration');
 
 function greg_load_css(){
+	
+	// glightbox
+	wp_register_style(
+		'glightbox',
+		'https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css',
+		array(),
+		false,
+		'all'
+	);
+
+	if(is_singular( array('oferty') )){
+		wp_enqueue_style('glightbox');
+	}
 
 	// główny plik css
 	wp_register_style(
@@ -38,6 +51,18 @@ function greg_load_css(){
 add_action('wp_enqueue_scripts', 'greg_load_css');
 
 function greg_load_scripts(){
+
+	wp_register_script(
+		'glightbox',
+		'https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/js/glightbox.min.js',
+		array(),
+		false,
+		true
+	);
+	
+	if(is_singular( array('oferty') )){
+		wp_enqueue_script('glightbox');
+	}
 
 	wp_register_script(
 		'greg-main',
@@ -68,6 +93,7 @@ function greg_allowed_block_types($block_editor_context, $editor_context){
 			'acf/hero-main',
 			'acf/hero-features',
 			'acf/section-with-features',
+			'acf/banner',
 		);
 	}
 
@@ -124,6 +150,23 @@ function greg_acf_blocks_registration(){
 			'icon'              => 'block-default',
 			'align_content'     => false,
 			'keywords'          => array( 'section-with-features block' ),
+			'enqueue_assets'    => 'greg_block_assets',
+			'mode'              => 'edit',
+			'supports'          => array(
+				'align'     => false,
+			),
+		));
+
+		// banner
+		acf_register_block_type(array(
+			'name'              => 'banner',
+			'title'             => __('banner'),
+			'description'       => __('banner'),
+			'render_callback'   => 'greg_acf_block_render_callback',
+			'category'          => 'Sections',
+			'icon'              => 'block-default',
+			'align_content'     => false,
+			'keywords'          => array( 'banner block' ),
 			'enqueue_assets'    => 'greg_block_assets',
 			'mode'              => 'edit',
 			'supports'          => array(

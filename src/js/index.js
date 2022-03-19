@@ -18,7 +18,6 @@ const galleryInit = () => {
 			navPosition: 'bottom',
 			mouseDrag: true,
 			autoWidth: true,
-			autoHeight: true,
 			speed: 350,
 
 			responsive: {
