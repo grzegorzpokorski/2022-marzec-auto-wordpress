@@ -2,13 +2,19 @@
 
 <main>
 
-	<section>
+	<header class="hero hero--image text-white py-4" style="background-image: url('./dist/img/hero-1900w.webp');">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8 mx-auto text-center z-index-2">
+					<h1 class="h2 text-white mb-0">
+						<?php wp_title(''); ?>
+					</h1>
+				</div>
+			</div>
+		</div>
+	</header>
 
-		<header>
-			<h2>
-				<?php echo wp_title(''); ?>
-			</h2>
-		</header>
+	<section>
 
 		<ul>
 
