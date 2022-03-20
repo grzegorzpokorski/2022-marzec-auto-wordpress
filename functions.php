@@ -34,7 +34,7 @@ function greg_load_css(){
 		'all'
 	);
 
-	if(is_singular( array('oferty') )){
+	if(is_singular( array('samochody') )){
 		wp_enqueue_style('glightbox');
 	}
 
@@ -60,7 +60,7 @@ function greg_load_scripts(){
 		true
 	);
 	
-	if(is_singular( array('oferty') )){
+	if(is_singular( array('samochody') )){
 		wp_enqueue_script('glightbox');
 	}
 
