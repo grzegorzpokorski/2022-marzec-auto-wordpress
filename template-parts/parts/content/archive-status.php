@@ -2,13 +2,14 @@
 
 <main>
 
-	<header class="hero hero--image text-white py-4" style="background-image: url('<?php echo get_template_directory(); ?>/dist/img/hero-1900w.webp');">
+	<header class="hero hero--image text-white py-4" style="background-image: url('<?php echo get_template_directory_uri(); ?>/src/img/hero.jpg');">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-8 mx-auto text-center z-index-2">
 					<h1 class="h2 text-white mb-0">
-						<?php wp_title(''); ?>
+						<?php echo get_the_archive_title(''); ?>
 					</h1>
+					<?php the_archive_description('<div class="mt-1">', '</div>'); ?>
 				</div>
 			</div>
 		</div>
@@ -47,6 +48,27 @@
 									</h3>
 								</a>
 							</header>
+							<?php if(have_rows('parameters')): ?>
+						<div class="row">
+							<div class="col-12">
+								<ul class="list-unstyled custom-content custom-content--col-2">
+
+									<?php while(have_rows('parameters')): the_row(); ?>
+
+									<li class="d-flex flex-row py-05 custom-content__avoid-break">
+										<span class="w-50">
+											<?php echo get_sub_field('parametr'); ?>:</span>
+										<span class="w-50">
+											<?php echo get_sub_field('wartosc'); ?>
+										</span>
+									</li>
+
+									<?php endwhile; ?>
+									
+								</ul>
+							</div>
+						</div>
+						<?php endif; ?>
 							<footer class="d-flex flex-row flex-wrap gap-05 justify-content-center justify-content-md-start">
 								<span class="btn btn-blue-secondary text-white pe-none">
 									<?php echo $brutto; ?>

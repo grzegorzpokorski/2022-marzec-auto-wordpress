@@ -105,6 +105,65 @@
                 ]
             },
             {
+                "key": "field_6237b952f9588",
+                "label": "parametry",
+                "name": "parameters",
+                "type": "repeater",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "collapsed": "",
+                "min": 0,
+                "max": 0,
+                "layout": "table",
+                "button_label": "",
+                "sub_fields": [
+                    {
+                        "key": "field_6237ba14f9589",
+                        "label": "parametr",
+                        "name": "parametr",
+                        "type": "text",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": ""
+                    },
+                    {
+                        "key": "field_6237ba20f958a",
+                        "label": "wartosc",
+                        "name": "wartosc",
+                        "type": "text",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": ""
+                    }
+                ]
+            },
+            {
                 "key": "field_62363ef35f34b",
                 "label": "opis",
                 "name": "content",
@@ -119,7 +178,7 @@
                 },
                 "default_value": "",
                 "tabs": "visual",
-                "toolbar": "very_simple",
+                "toolbar": "oferta_content",
                 "media_upload": 0,
                 "delay": 0
             }
@@ -129,7 +188,7 @@
                 {
                     "param": "post_type",
                     "operator": "==",
-                    "value": "oferty"
+                    "value": "samochody"
                 }
             ]
         ],

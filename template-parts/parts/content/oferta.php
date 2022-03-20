@@ -93,52 +93,29 @@
 						<h1 class="h3">
 							<?php the_title(); ?>
 						</h1>
+
+						<?php if(have_rows('parameters')): ?>
 						<div class="row">
-							<div class="col-12 col-md-6">
-								<table class="table table-borderless mb-0">
-									<tr>
-										<td>Rok produkcji</td>
-										<td>2013</td>
-									</tr>
-									<tr>
-										<td>Moc silnika</td>
-										<td>430 KM</td>
-									</tr>
-									<tr>
-										<td>Pojemność</td>
-										<td>4.3 L</td>
-									</tr>
-									<tr>
-										<td>Przebieg</td>
-										<td>39 000 km</td>
-									</tr>
-									<tr>
-										<td>kolor nadwozia</td>
-										<td>czarna perła</td>
-									</tr>
-								</table>
-							</div>
-							<div class="col-12 col-md-6">
-								<table class="table table-borderless mb-0">
-									<tr>
-										<td>Typ nadwozia</td>
-										<td>limuzyna</td>
-									</tr>
-									<tr>
-										<td>Paliwo</td>
-										<td>benzyna</td>
-									</tr>
-									<tr>
-										<td>Liczba miejsc</td>
-										<td>5</td>
-									</tr>
-									<tr>
-										<td>Faktura VAT</td>
-										<td>tak</td>
-									</tr>
-								</table>
+							<div class="col-12">
+								<ul class="list-unstyled custom-content custom-content--col-2">
+
+									<?php while(have_rows('parameters')): the_row(); ?>
+
+									<li class="d-flex flex-row py-05 custom-content__avoid-break">
+										<span class="w-50">
+											<?php echo get_sub_field('parametr'); ?>:</span>
+										<span class="w-50">
+											<?php echo get_sub_field('wartosc'); ?>
+										</span>
+									</li>
+
+									<?php endwhile; ?>
+									
+								</ul>
 							</div>
 						</div>
+						<?php endif; ?>
+
 					</div>
 
 					<?php if(get_field('content')): ?>
