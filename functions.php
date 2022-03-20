@@ -95,6 +95,7 @@ function greg_allowed_block_types($block_editor_context, $editor_context){
 			'acf/section-with-features',
 			'acf/banner',
 			'acf/page-header',
+			'acf/page-content',
 		);
 	}
 
@@ -192,6 +193,23 @@ function greg_acf_blocks_registration(){
 			),
 		));
 
+		// page-content
+		acf_register_block_type(array(
+			'name'              => 'page-content',
+			'title'             => __('page-content'),
+			'description'       => __('page-content'),
+			'render_callback'   => 'greg_acf_block_render_callback',
+			'category'          => 'Sections',
+			'icon'              => 'block-default',
+			'align_content'     => false,
+			'keywords'          => array( 'page-content block' ),
+			'enqueue_assets'    => 'greg_block_assets',
+			'mode'              => 'edit',
+			'supports'          => array(
+				'align'     => false,
+			),
+		));
+
 	}
 }
 add_action('acf/init', 'greg_acf_blocks_registration');
@@ -253,7 +271,7 @@ function greg_my_toolbars($toolbars){
 
 	// Uncomment to view format of $toolbars
 	
-	// echo '< pre >';
+	// echo '<pre>';
 	// 	print_r($toolbars);
 	// echo '< /pre >';
 	// die;
@@ -263,6 +281,7 @@ function greg_my_toolbars($toolbars){
 
 	$toolbars['oferta content'] = array();
 	$toolbars['oferta content'][1] = array(
+		'formatselect',
 		'bold',
 		'italic',
 		'underline',
