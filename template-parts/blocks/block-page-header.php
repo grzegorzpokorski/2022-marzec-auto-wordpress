@@ -16,7 +16,7 @@ $background_image = wp_get_attachment_image_src($background_image_id, 'size_full
 			<div class="col-md-8 mx-auto text-center z-index-2">
 
 				<?php if($title): ?>
-				<<?php echo $title_heading_level; ?> class="h1 text-white">
+				<<?php echo $title_heading_level; ?> class="h1 text-white <?php echo ($description) ? '' : 'mb-0'; ?>">
 					<?php echo $title; ?>
 				</<?php echo $title_heading_level; ?>>
 				<?php endif; ?>
