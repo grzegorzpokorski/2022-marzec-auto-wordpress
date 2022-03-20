@@ -94,6 +94,7 @@ function greg_allowed_block_types($block_editor_context, $editor_context){
 			'acf/hero-features',
 			'acf/section-with-features',
 			'acf/banner',
+			'acf/page-header',
 		);
 	}
 
@@ -174,6 +175,23 @@ function greg_acf_blocks_registration(){
 			),
 		));
 
+		// page-header
+		acf_register_block_type(array(
+			'name'              => 'page-header',
+			'title'             => __('page-header'),
+			'description'       => __('page-header'),
+			'render_callback'   => 'greg_acf_block_render_callback',
+			'category'          => 'Sections',
+			'icon'              => 'block-default',
+			'align_content'     => false,
+			'keywords'          => array( 'page-header block' ),
+			'enqueue_assets'    => 'greg_block_assets',
+			'mode'              => 'edit',
+			'supports'          => array(
+				'align'     => false,
+			),
+		));
+
 	}
 }
 add_action('acf/init', 'greg_acf_blocks_registration');
@@ -243,18 +261,29 @@ function greg_my_toolbars($toolbars){
 	$toolbars['Very Simple'] = array();
 	$toolbars['Very Simple'][1] = array('bold' , 'italic' , 'underline', 'link');
 
+	$toolbars['oferta content'] = array();
+	$toolbars['oferta content'][1] = array(
+		'bold',
+		'italic',
+		'underline',
+		'link',
+		'bullist',
+		'numlist',
+		'blockquote',
+	);
+
 	return $toolbars;
 }
 add_filter('acf/fields/wysiwyg/toolbars', 'greg_my_toolbars');
 
 // remove add media in wysiwyg field with default-content tolbar
-function greg_change_post_content_type($field){ 
-	if($field['type'] == 'wysiwyg') {
-		$field['tabs'] = 'visual';
-	}
-	return $field;
-}
-add_filter('acf/get_valid_field', 'greg_change_post_content_type');
+// function greg_change_post_content_type($field){ 
+// 	if($field['type'] == 'wysiwyg') {
+// 		$field['tabs'] = 'visual';
+// 	}
+// 	return $field;
+// }
+// add_filter('acf/get_valid_field', 'greg_change_post_content_type');
 
 // custom options pages with acf
 function greg_add_options_pages(){

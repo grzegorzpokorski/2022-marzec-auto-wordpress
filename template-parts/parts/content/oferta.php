@@ -142,7 +142,7 @@
 					</div>
 
 					<?php if(get_field('content')): ?>
-					<div class="shadow single__content">
+					<div class="shadow single__content custom-content">
 						<?php echo get_field('content'); ?>
 					</div>
 					<?php endif; ?>
