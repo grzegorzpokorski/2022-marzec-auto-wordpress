@@ -68,7 +68,7 @@ if(get_field('telefon', 'navbar_settings')){
 			}
 			?>
 			<?php if($telefon): ?>
-				<a href="tel:<?php echo $telefon; ?>" class="btn btn-outline-blue-primary px-1 ms-auto">
+				<a href="tel:<?php echo $telefon; ?>" class="text-blue-primary fw-bold ms-auto">
 					<?php echo $telefon; ?>
 				</a>
 			<?php endif; ?>

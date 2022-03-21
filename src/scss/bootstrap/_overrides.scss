@@ -6,6 +6,7 @@
 
 $blue-primary: #0F143C;
 $blue-secondary: #0088EE;
+$blue-third: #87899d;
 
 $blue-1: $blue-secondary;
 $blue-2: #31A4FB;
@@ -21,6 +22,7 @@ $theme-colors:();
 $theme-colors:(
 	'blue-primary': $blue-primary,
 	'blue-secondary': $blue-secondary,
+	'blue-third': $blue-third,
 
 	'blue-1': $blue-1,
 	'blue-2': $blue-2,

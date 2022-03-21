@@ -19,7 +19,7 @@ function greg_theme_configuration(){
 	add_image_size('size_large', 1200, '', array('center', 'center'));
 	add_image_size('size_medium', 1048, '', array('center', 'center'));
 	add_image_size('size_small', 768, '', array('center', 'center'));
-	add_image_size('size_thumbnail', 576, '', array('center', 'center'));
+	add_image_size('size_thumbnail', 576, 433, array('center', 'center'), true);
 }
 add_action('after_setup_theme', 'greg_theme_configuration');
 

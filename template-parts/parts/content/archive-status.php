@@ -2,7 +2,7 @@
 
 <main>
 
-	<header class="hero hero--image text-white py-4" style="background-image: url('<?php echo get_template_directory_uri(); ?>/src/img/hero.jpg');">
+	<header class="hero hero--image text-white py-4" style="background-image: url('<?php echo get_template_directory_uri(); ?>/dist/img/hero-1900w.webp');">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-8 mx-auto text-center z-index-2">
@@ -32,53 +32,35 @@
 				$thumbnail = get_field('gallery')[0];
 
 				?>
-
-				<li class="col-12">
-					<div class="shadow row flex-row g-0 bg-white">
-						<a href="<?php the_permalink() ?>" class="col-12 col-md-5">
-							<figure class="d-block mb-0 archive__image-wrapper">
-								<img src="<?php echo $thumbnail['sizes']['size_thumbnail']; ?>" alt="<?php echo $thumbnail['alt']; ?>" width="<?php echo $thumbnail['width']; ?>" height="<?php echo $thumbnail['height']; ?>" loading="lazy" class="archive__image">
-							</figure>
+				
+				<li class="col-12 col-md-6 col-lg-4">
+					<article class="d-flex flex-column justify-content-between bg-white shadow h-100">
+						<a href="<?php the_permalink(); ?>" class="archive__image-wrapper">
+							<?php echo wp_get_attachment_image($thumbnail['id'], 'size_thumbnail', false, array("class" => "archive__image")); ?>
 						</a>
-						<article class="col-12 col-md-7 p-2">
-							<header>
-								<a href="<?php the_permalink(); ?>">
-									<h3>
-										<?php the_title(); ?>
-									</h3>
-								</a>
-							</header>
-							<?php if(have_rows('parameters')): ?>
-						<div class="row">
-							<div class="col-12">
-								<ul class="list-unstyled custom-content custom-content--col-2">
-
-									<?php while(have_rows('parameters')): the_row(); ?>
-
-									<li class="d-flex flex-row py-05 custom-content__avoid-break">
-										<span class="w-50">
-											<?php echo get_sub_field('parametr'); ?>:</span>
-										<span class="w-50">
-											<?php echo get_sub_field('wartosc'); ?>
-										</span>
-									</li>
-
-									<?php endwhile; ?>
-									
-								</ul>
+						<header class="p-1">
+							<a href="<?php the_permalink(); ?>">
+								<h3 class="mb-0">
+									<?php the_title(); ?>
+								</h3>
+							</a>
+						</header>
+						<ul class="px-1 pb-1 archive__list">
+							<li class="archive__list-item">2013</li>
+							<li class="archive__list-item">430 KM</li>
+							<li class="archive__list-item">156 000 km</li>
+							<li class="archive__list-item">benzyna</li>
+						</ul>
+						<footer class="px-1 pb-1 archive__footer">
+							<div class="d-flex flex-column">
+								<span class="archive__price"><?php echo $brutto; ?></span>
+								<span class="archive__price-type">brutto</span>
 							</div>
-						</div>
-						<?php endif; ?>
-							<footer class="d-flex flex-row flex-wrap gap-05 justify-content-center justify-content-md-start">
-								<span class="btn btn-blue-secondary text-white pe-none">
-									<?php echo $brutto; ?>
-								</span>
-								<a href="<?php the_permalink(); ?>" class="btn btn-outline-blue-primary">
-									Szczegóły
-								</a>
-							</footer>
-						</article>
-					</div>
+							<a href="<?php the_permalink(); ?>" class="btn btn-blue-secondary text-white">
+								Szczegóły
+							</a>
+						</footer>
+					</article>
 				</li>
 
 				<?php endwhile; ?>
