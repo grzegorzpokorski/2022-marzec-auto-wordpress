@@ -45,12 +45,19 @@
 								</h3>
 							</a>
 						</header>
-						<ul class="px-1 pb-1 archive__list">
-							<li class="archive__list-item">2013</li>
-							<li class="archive__list-item">430 KM</li>
-							<li class="archive__list-item">156 000 km</li>
-							<li class="archive__list-item">benzyna</li>
-						</ul>
+
+						<?php if(have_rows('parameters', get_the_ID())) :?>
+		                <ul class="px-1 pb-1 archive__list">
+
+		                  <?php while(have_rows('parameters', get_the_ID())): the_row(); ?>
+		                  <li class="archive__list-item">
+		                    <?php echo get_sub_field('wartosc', get_the_ID()); ?>
+		                  </li>
+		                  <?php endwhile; ?>
+
+		                </ul>
+		                <?php endif; ?>
+		                
 						<footer class="px-1 pb-1 archive__footer">
 							<div class="d-flex flex-column">
 								<span class="archive__price"><?php echo $brutto; ?></span>
@@ -78,6 +85,8 @@
 		</div>
 	</nav>
 	<?php endif; ?>
+
+
 
 </main>
 

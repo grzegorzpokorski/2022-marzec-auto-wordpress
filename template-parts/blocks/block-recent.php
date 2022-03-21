@@ -1,7 +1,7 @@
 <?php 
 
 $args = array(
-  'posts_per_page' => 3,
+  'posts_per_page' => get_field('how_many_items'),
   'post_type' => 'samochody',
   'orderby' => 'rand',
   'tax_query' => array(
@@ -18,11 +18,13 @@ if($the_query->have_posts()): ?>
   <section class="py-4 pb-2 border-top">
     <div class="container">
       <div class="row justify-content-center">
+
         <header class="col-md-8 order-1">
           <h2 class="text-blue-primary">
-            Zobacz polecane modele
+            <?php echo get_field('title'); ?>
           </h2>
         </header>
+
         <div class="col order-2 order-md-3">
           <ul class="row justify-content-center list-unstyled mb-md-0 mt-2 archive">
 
@@ -52,12 +54,19 @@ if($the_query->have_posts()): ?>
                     </h3>
                   </a>
                 </header>
+
+                <?php if(have_rows('parameters', get_the_ID())) :?>
                 <ul class="px-1 pb-1 archive__list">
-                  <li class="archive__list-item">2013</li>
-                  <li class="archive__list-item">430 KM</li>
-                  <li class="archive__list-item">156 000 km</li>
-                  <li class="archive__list-item">benzyna</li>
+
+                  <?php while(have_rows('parameters', get_the_ID())): the_row(); ?>
+                  <li class="archive__list-item">
+                    <?php echo get_sub_field('wartosc', get_the_ID()); ?>
+                  </li>
+                  <?php endwhile; ?>
+
                 </ul>
+                <?php endif; ?>
+
                 <footer class="px-1 pb-1 archive__footer">
                   <div class="d-flex flex-column">
                     <span class="archive__price"><?php echo $brutto; ?></span>
@@ -71,17 +80,23 @@ if($the_query->have_posts()): ?>
             </li>
 
           <?php endwhile; ?>
-          <?php wp_reset_postdata(); ?>
           
           </ul>
         </div>
+
+        <?php if(have_rows('button')): ?>
+        <?php while(have_rows('button')): the_row(); ?>
         <div class="col-md-4 order-3 order-md-2 bg-primary text-center text-md-end">
-          <a href="#" class="btn btn-blue-secondary text-white mt-2 mt-md-0">
-            Zobacz całą ofertę
+          <a href="<?php echo get_term_link(get_sub_field('link_to_archive')); ?>" class="btn btn-blue-secondary text-white mt-2 mt-md-0">
+            <?php echo get_sub_field('text'); ?>
           </a>
         </div>
+        <?php endwhile; ?>
+        <?php endif; ?>
+
       </div>
     </div>
   </section>
 
+<?php wp_reset_postdata(); ?>
 <?php else: endif; ?>
