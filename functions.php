@@ -96,6 +96,7 @@ function greg_allowed_block_types($block_editor_context, $editor_context){
 			'acf/banner',
 			'acf/page-header',
 			'acf/page-content',
+			'acf/recent',
 		);
 	}
 
@@ -203,6 +204,23 @@ function greg_acf_blocks_registration(){
 			'icon'              => 'block-default',
 			'align_content'     => false,
 			'keywords'          => array( 'page-content block' ),
+			'enqueue_assets'    => 'greg_block_assets',
+			'mode'              => 'edit',
+			'supports'          => array(
+				'align'     => false,
+			),
+		));
+
+		// recent
+		acf_register_block_type(array(
+			'name'              => 'recent',
+			'title'             => __('recent'),
+			'description'       => __('recent'),
+			'render_callback'   => 'greg_acf_block_render_callback',
+			'category'          => 'Sections',
+			'icon'              => 'block-default',
+			'align_content'     => false,
+			'keywords'          => array( 'recent block' ),
 			'enqueue_assets'    => 'greg_block_assets',
 			'mode'              => 'edit',
 			'supports'          => array(
