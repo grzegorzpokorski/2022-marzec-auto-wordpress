@@ -3857,7 +3857,7 @@ textarea.form-control-lg {
 .d-none {
   display: none !important; }
 
-.shadow, .custom-content .wpcf7 {
+.shadow {
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important; }
 
 .shadow-sm {
@@ -12192,7 +12192,6 @@ p:last-child {
     border-left: 0.75rem solid #0088EE;
     background-color: rgba(0, 136, 238, 0.1); }
   .custom-content .wpcf7 {
-    padding: 2rem;
     background-color: #ffffff; }
   .custom-content form.invalid .wpcf7-form-control:not([type='submit']) {
     border-color: #dc3545; }

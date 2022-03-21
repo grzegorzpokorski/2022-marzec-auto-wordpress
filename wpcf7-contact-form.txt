@@ -1,0 +1,21 @@
+<label for="imie_i_nazwisko" class="sr-only">imie i nazwisko</label>
+[text* imie_i_nazwisko class:form-control class:bg-white id:imie_i_nazwisko placeholder "imie i nazwisko"]
+
+<label for="numer_telefonu" class="sr-only">numer telefonu</label>
+[tel* numer_telefonu class:form-control class:bg-white id:numer_telefonu placeholder "numer telefonu"]
+
+<label for="adres_email" class="sr-only">adres email</label>
+[email* adres_email class:form-control class:bg-white id:adres_email placeholder "adres email"]
+
+<label for="tresc_wiadomosci" class="sr-only">treść wiadomości</label>
+[textarea* tresc_wiadomosci x3 class:form-control class:bg-white id:tresc_wiadomosci placeholder "treść wiadomości"]
+
+[acceptance acceptance-355]
+Fringilla eleifend, purus leo euismod metus, in finibus enim enim nec ipsum.
+[/acceptance]
+
+[acceptance acceptance-356]
+Maecenas eu orci velit. Donec feugiat, neque at fringilla eleifend, purus leo euismod metus, in finibus enim enim nec ipsum.
+[/acceptance]
+
+[submit class:btn class:btn-green class:rounded-pill class:text-white "Wyślij"]
