@@ -392,4 +392,40 @@ add_filter('get_the_archive_title', 'greg_archive_title');
 
 add_filter( 'wpcf7_autop_or_not', '__return_false' );
 
+function bootstrap_pagination( $echo = true ) {
+global $wp_query;
+
+$big = 999999999; // need an unlikely integer
+
+$pages = paginate_links( array(
+'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
+'format' => '?paged=%#%',
+'current' => max( 1, get_query_var('paged') ),
+'total' => $wp_query->max_num_pages,
+'type'  => 'array',
+'prev_next'   => false,
+'prev_text'    => __('« Przednia'),
+'next_text'    => __('Next »'),
+)
+);
+
+if( is_array( $pages ) ) {
+$paged = ( get_query_var('paged') == 0 ) ? 1 : get_query_var('paged');
+
+$pagination = '<ul class="col-12 list-unstyled d-flex gap-1 justify-content-center">';
+
+foreach ( $pages as $page ) {
+$pagination .= "<li>$page</li>";
+}
+
+$pagination .= '</ul>';
+
+if ( $echo ) {
+echo $pagination;
+} else {
+return $pagination;
+}
+}
+}
+
 ?>

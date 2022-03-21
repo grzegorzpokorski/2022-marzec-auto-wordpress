@@ -69,6 +69,16 @@
 		</div>
 	</section>
 
+	<?php if(paginate_links()): ?>
+	<nav class="pb-4">
+		<div class="container">
+			<div class="row">
+				<?php bootstrap_pagination(); ?>
+			</div>
+		</div>
+	</nav>
+	<?php endif; ?>
+
 </main>
 
 <?php endif; ?>
