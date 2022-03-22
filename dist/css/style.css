@@ -12122,6 +12122,14 @@ p:last-child {
     color: #0F143C; }
   .archive__price-type {
     color: #87899d; }
+  .archive__fv {
+    position: absolute;
+    top: .5rem;
+    left: .5rem;
+    padding: .5em 1em;
+    font-size: .8rem;
+    background-color: #0F143C;
+    color: #ffffff; }
 
 .custom-content {
   column-count: 1;

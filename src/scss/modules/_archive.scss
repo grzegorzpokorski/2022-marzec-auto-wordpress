@@ -68,4 +68,14 @@
 	&__price-type{
 		color: $blue-third;
 	}
+
+	&__fv{
+		position: absolute;
+		top: .5rem;
+		left: .5rem;
+		padding: .5em 1em;
+		font-size: .8rem;
+		background-color: $blue-primary;
+		color: $white;
+	}
 }

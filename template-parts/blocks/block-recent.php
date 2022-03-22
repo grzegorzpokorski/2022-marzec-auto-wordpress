@@ -35,6 +35,7 @@ if($the_query->have_posts()): ?>
             while(have_rows('price_box', get_the_ID())){
               the_row();
               $brutto = get_sub_field('brutto', get_the_ID());
+              $waluta = get_sub_field('waluta', get_the_ID());
               $fv = get_sub_field('faktura_vat', get_the_ID());
             }
 
@@ -43,7 +44,14 @@ if($the_query->have_posts()): ?>
             ?>
 
             <li class="col-12 col-md-6 col-lg-4">
-              <article class="d-flex flex-column justify-content-between bg-white shadow h-100">
+              <article class="d-flex flex-column justify-content-between bg-white shadow h-100 position-relative">
+
+                <?php if($fv): ?>
+                <span class="archive__fv z-index-2">
+                  Faktura VAT
+                </span>
+                <?php endif; ?>
+
                 <a href="<?php the_permalink(); ?>" class="archive__image-wrapper">
                   <?php echo wp_get_attachment_image($thumbnail['id'], 'size_thumbnail', false, array("class" => "archive__image")); ?>
                 </a>
@@ -69,7 +77,7 @@ if($the_query->have_posts()): ?>
 
                 <footer class="px-1 pb-1 archive__footer">
                   <div class="d-flex flex-column">
-                    <span class="archive__price"><?php echo $brutto; ?></span>
+                    <span class="archive__price"><?php echo $brutto . ' ' . $waluta; ?></span>
                     <span class="archive__price-type">brutto</span>
                   </div>
                   <a href="<?php the_permalink(); ?>" class="btn btn-blue-secondary text-white">

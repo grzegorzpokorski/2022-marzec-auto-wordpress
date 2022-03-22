@@ -1,3 +1,9 @@
+<?php 
+// echo '<pre>';
+// print_r($wp_query->query_vars);
+
+?>
+
 <?php if(have_posts()): ?>
 
 <main>
@@ -19,13 +25,14 @@
 		<div class="container">
 			<ul class="row justify-content-center list-unstyled archive">
 
-				<?php 
+				<?php
 				
 				while(have_posts()): the_post();
 				
 				while(have_rows('price_box')){
 					the_row();
 					$brutto = get_sub_field('brutto');
+					$waluta = get_sub_field('waluta');
 					$fv = get_sub_field('faktura_vat');
 				}
 
@@ -34,7 +41,14 @@
 				?>
 				
 				<li class="col-12 col-md-6 col-lg-4">
-					<article class="d-flex flex-column justify-content-between bg-white shadow h-100">
+					<article class="d-flex flex-column justify-content-between bg-white shadow h-100 position-relative">
+
+						<?php if($fv): ?>
+						<span class="archive__fv z-index-2">
+							Faktura VAT
+						</span>
+						<?php endif; ?>
+
 						<a href="<?php the_permalink(); ?>" class="archive__image-wrapper">
 							<?php echo wp_get_attachment_image($thumbnail['id'], 'size_thumbnail', false, array("class" => "archive__image")); ?>
 						</a>
@@ -47,20 +61,20 @@
 						</header>
 
 						<?php if(have_rows('parameters', get_the_ID())) :?>
-		                <ul class="px-1 pb-1 archive__list">
+            <ul class="px-1 pb-1 archive__list">
 
-		                  <?php while(have_rows('parameters', get_the_ID())): the_row(); ?>
-		                  <li class="archive__list-item">
-		                    <?php echo get_sub_field('wartosc', get_the_ID()); ?>
-		                  </li>
-		                  <?php endwhile; ?>
+              <?php while(have_rows('parameters', get_the_ID())): the_row(); ?>
+              <li class="archive__list-item">
+                <?php echo get_sub_field('wartosc', get_the_ID()); ?>
+              </li>
+              <?php endwhile; ?>
 
-		                </ul>
-		                <?php endif; ?>
+            </ul>
+            <?php endif; ?>
 		                
 						<footer class="px-1 pb-1 archive__footer">
 							<div class="d-flex flex-column">
-								<span class="archive__price"><?php echo $brutto; ?></span>
+								<span class="archive__price"><?php echo $brutto . ' ' . $waluta; ?></span>
 								<span class="archive__price-type">brutto</span>
 							</div>
 							<a href="<?php the_permalink(); ?>" class="btn btn-blue-secondary text-white">
@@ -80,13 +94,11 @@
 	<nav class="pb-4">
 		<div class="container">
 			<div class="row">
-				<?php bootstrap_pagination(); ?>
+				<?php greg_pagination(); ?>
 			</div>
 		</div>
 	</nav>
 	<?php endif; ?>
-
-
 
 </main>
 

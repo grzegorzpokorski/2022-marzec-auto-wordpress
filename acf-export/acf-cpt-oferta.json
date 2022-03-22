@@ -46,9 +46,9 @@
                 "layout": "block",
                 "sub_fields": [
                     {
-                        "key": "field_62363f905f34f",
-                        "label": "brutto",
-                        "name": "brutto",
+                        "key": "field_6239c125427a7",
+                        "label": "waluta",
+                        "name": "waluta",
                         "type": "text",
                         "instructions": "",
                         "required": 0,
@@ -65,10 +65,10 @@
                         "maxlength": ""
                     },
                     {
-                        "key": "field_62363f7c5f34e",
-                        "label": "netto",
-                        "name": "netto",
-                        "type": "text",
+                        "key": "field_62363f905f34f",
+                        "label": "brutto",
+                        "name": "brutto",
+                        "type": "number",
                         "instructions": "",
                         "required": 0,
                         "conditional_logic": 0,
@@ -81,7 +81,30 @@
                         "placeholder": "",
                         "prepend": "",
                         "append": "",
-                        "maxlength": ""
+                        "min": "",
+                        "max": "",
+                        "step": ""
+                    },
+                    {
+                        "key": "field_62363f7c5f34e",
+                        "label": "netto",
+                        "name": "netto",
+                        "type": "number",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "min": "",
+                        "max": "",
+                        "step": ""
                     },
                     {
                         "key": "field_62363fb75f350",
@@ -181,6 +204,25 @@
                 "toolbar": "oferta_content",
                 "media_upload": 0,
                 "delay": 0
+            },
+            {
+                "key": "field_6239b82dc60a9",
+                "label": "cena",
+                "name": "cena",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
             }
         ],
         "location": [
