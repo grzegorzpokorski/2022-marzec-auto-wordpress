@@ -40,6 +40,7 @@
 					the_row();
 					$netto = get_sub_field('netto');
 					$brutto = get_sub_field('brutto');
+					$waluta = get_sub_field('waluta');
 					$fv = get_sub_field('faktura_vat');
 				}
 				?>
@@ -53,7 +54,7 @@
 									<p>Cena brutto:</p>
 								</td>
 								<td>
-									<p class="fw-bold text-end"><?php echo $brutto; ?></p>
+									<p class="fw-bold text-end"><?php echo $brutto.' '.$waluta; ?></p>
 								</td>
 							</tr>
 							<?php endif; ?>
@@ -64,7 +65,7 @@
 									<p>Cena netto:</p>
 								</td>
 								<td>
-									<p class="fw-bold text-end"><?php echo $netto; ?></p>
+									<p class="fw-bold text-end"><?php echo $netto.' '.$waluta; ?></p>
 								</td>
 							</tr>
 							<?php endif; ?>
