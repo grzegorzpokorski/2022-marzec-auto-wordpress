@@ -94,7 +94,9 @@
 	<nav class="pb-4">
 		<div class="container">
 			<div class="row">
-				<?php greg_pagination(); ?>
+				<div class="col-12 text-center">
+					<?php greg_pagination(); ?>
+				</div>
 			</div>
 		</div>
 	</nav>
