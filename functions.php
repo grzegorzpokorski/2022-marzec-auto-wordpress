@@ -429,10 +429,10 @@ function greg_pagination($echo = true){
 	if(is_array($pages)){
 		$paged = (get_query_var('paged') == 0) ? 1 : get_query_var('paged');
 
-		$pagination = '<ul class="list-unstyled d-flex gap-1 justify-content-center">';
+		$pagination = '<ul class="list-unstyled d-flex gap-05 justify-content-center pagination">';
 
 		foreach($pages as $page){
-			$pagination .= "<li>$page</li>";
+			$pagination .= "<li class='pagination__item'>$page</li>";
 		}
 
 		$pagination .= '</ul>';

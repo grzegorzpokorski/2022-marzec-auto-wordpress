@@ -1,0 +1,26 @@
+.pagination{
+	&__item{
+
+		& .page-numbers{
+			// padding: .4em 1em;
+			// background-color: transparent;
+			// border: .1875em solid $blue-secondary;
+			// color: $blue-secondary;
+			// text-decoration: none;
+			// transition: all .35s;
+			@extend .btn;
+			@extend .btn-outline-blue-secondary;
+			@extend .text-blue-secondary;
+
+			&.current,
+			&:hover,
+			&:focus{
+				// background-color: $blue-secondary;
+				// color: $white;
+				@extend .btn;
+				@extend .btn-blue-secondary;
+				@extend .text-white;
+			}
+		}
+	}
+}
