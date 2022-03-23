@@ -20,7 +20,7 @@
 					<?php foreach( $images as $image ): ?>
 					<li class="col-12 col-md-5 mt-0">
 						<a href="<?php echo esc_url($image['url']); ?>" class="gallery__thumbnail-wrapper glightbox">
-							<img src="<?php echo esc_url($image['sizes']['size_thumbnail']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" class="gallery__thumbnail">
+							<img src="<?php echo esc_url($image['sizes']['size_thumbnail']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" class="gallery__thumbnail" loading="lazy">
 						</a>
 					</li>
 					<?php endforeach; ?>
@@ -73,7 +73,7 @@
 						</table>
 						<div class="d-flex flex-row flex-wrap gap-05 justify-content-center justify-content-md-start">
 							<?php if($fv): ?>
-							<span class="btn btn-sm btn-white pe-none">
+							<span class="btn btn-sm btn-blue-primary pe-none">
 								Faktura VAT
 							</span>
 							<?php endif; ?>

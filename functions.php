@@ -380,10 +380,10 @@ function greg_remove_plugin_assets(){
 
 	// styles
 	wp_dequeue_style(array( 
-		// 'wp-block-library', 
-		// 'wc-block-style',
-		// 'global-styles',
-		// 'contact-form-7',
+		'wp-block-library', 
+		'wc-block-style',
+		'global-styles',
+		'contact-form-7',
 	)); 
 
 	// scripts

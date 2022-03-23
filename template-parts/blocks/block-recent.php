@@ -19,13 +19,13 @@ if($the_query->have_posts()): ?>
     <div class="container">
       <div class="row justify-content-center">
 
-        <header class="col-md-8 order-1">
+        <header class="col-md-12">
           <h2 class="text-blue-primary">
             <?php echo get_field('title'); ?>
           </h2>
         </header>
 
-        <div class="col order-2 order-md-3">
+        <div class="col-12">
           <ul class="row justify-content-center list-unstyled mb-md-0 mt-2 archive">
 
           <?php while($the_query->have_posts()): $the_query->the_post(); ?>
@@ -94,8 +94,8 @@ if($the_query->have_posts()): ?>
 
         <?php if(have_rows('button')): ?>
         <?php while(have_rows('button')): the_row(); ?>
-        <div class="col-md-4 order-3 order-md-2 bg-primary text-center text-md-end">
-          <a href="<?php echo get_term_link(get_sub_field('link_to_archive')); ?>" class="btn btn-blue-secondary text-white mt-2 mt-md-0">
+        <div class="col-md-12 bg-primary text-center pt-md-2">
+          <a href="<?php echo get_term_link(get_sub_field('link_to_archive')); ?>" class="btn btn-blue-secondary btn-lg text-white mt-2 mt-md-0">
             <?php echo get_sub_field('text'); ?>
           </a>
         </div>
