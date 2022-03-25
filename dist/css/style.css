@@ -12088,7 +12088,7 @@ p:last-child {
   display: none; }
 
 .archive {
-  row-gap: 1rem; }
+  row-gap: 1.5rem; }
   .archive__image-wrapper {
     display: block;
     overflow: hidden;
