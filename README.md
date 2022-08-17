@@ -1,6 +1,6 @@
 # Strona komisu samochodowego
 
-Strona prezentująca ofertę komisu samochodowego, zbudowana na dedykowanym szablonie WordPress wykożystujący ACF PRO, aby edycja treści oraz układu strony odbywała się prosto za pomocą edytora wizualnego.
+Strona prezentująca ofertę komisu samochodowego, zbudowana na dedykowanym szablonie WordPress wykorzystujący ACF PRO, aby edycja treści oraz układu strony odbywała się prosto za pomocą edytora wizualnego.
 
 ## Wykorzystane technologie 🛠️:
 
